@@ -80,15 +80,9 @@ class WordleGame {
       'REACT',
       'REDUX',
       'SWIFT',
-      'KOTLIN',
-      'PYTHON',
-      'JAVA',
-      'RUST',
-      'SCALA',
       'LINUX',
       'CLOUD',
       'STACK',
-      'QUEUE',
       'ARRAY',
       'GRAPH',
       'CACHE',
@@ -104,8 +98,26 @@ class WordleGame {
       'QUERY',
       'SCOPE',
       'SHELL',
-      'TRACE'
-    ]
+      'TRACE',
+      'PARSE',
+      'BUILD',
+      'FETCH',
+      'STYLE',
+      'ROUTE',
+      'MODEL',
+      'CLICK',
+      'FOCUS',
+      'MOUNT',
+      'PROPS',
+      'STATE',
+      'STORE',
+      'THEME',
+      'TOKEN',
+      'VALUE',
+      'WRITE',
+      'YIELD',
+      'BREAK'
+    ].filter(word => word.length === this.wordLength) // Ensure all words are 5 letters
     this.gameStarted = false
     this.init()
   }
@@ -225,25 +237,29 @@ class WordleGame {
 
   checkGuess(guess) {
     const result = new Array(this.wordLength).fill('wrong')
-    const wordArray = this.word.split('')
-    const guessArray = guess.split('')
+    const wordArray = [...this.word]
+    const guessArray = [...guess]
 
     // First pass: mark correct letters
-    guessArray.forEach((letter, i) => {
-      if (letter === wordArray[i]) {
+    for (let i = 0; i < guessArray.length; i++) {
+      if (guessArray[i] === wordArray[i]) {
         result[i] = 'correct'
         wordArray[i] = null
+        guessArray[i] = null
       }
-    })
+    }
 
     // Second pass: mark present letters
-    guessArray.forEach((letter, i) => {
-      if (result[i] === 'wrong' && wordArray.includes(letter)) {
-        result[i] = 'present'
-        wordArray[wordArray.indexOf(letter)] = null
-      }
-    })
+    for (let i = 0; i < guessArray.length; i++) {
+      if (guessArray[i] === null) continue // Skip already matched letters
 
+      const index = wordArray.indexOf(guessArray[i])
+      if (index !== -1) {
+        result[i] = 'present'
+        wordArray[index] = null // Mark this letter as used
+      }
+    }
+    
     return result
   }
 

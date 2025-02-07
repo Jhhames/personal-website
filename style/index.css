@@ -40,9 +40,10 @@ body {
 }
 
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 4rem 2rem;
 }
 
 .container h2 {
@@ -112,8 +113,10 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 80px; /* Account for fixed nav height */
+  padding: 5rem 2rem;
   box-sizing: border-box;
+  max-width: 1200px; /* Match container max-width */
+  margin: 0 auto; /* Center the hero section */
 }
 
 .header-text {
@@ -197,8 +200,7 @@ small {
   }
 
   #hero {
-    min-height: 100vh;
-    padding-top: 60px; /* Smaller padding for mobile */
+    padding: 3rem 1rem;
   }
 
   .header-text h2 {
@@ -231,6 +233,10 @@ small {
   /* Contact Section */
   .contact-info {
     padding: 1rem;
+  }
+
+  .container {
+    padding: 3rem 1rem;
   }
 }
 
@@ -301,8 +307,9 @@ footer {
 /* Update dark mode section styles */
 [data-theme="dark"] section {
   background: var(--card-bg);
-  margin: 1rem 0;
+  margin: 1rem auto;
   border-radius: 8px;
+  width: 100%;
 }
 
 [data-theme="dark"] .main-nav {
@@ -311,7 +318,9 @@ footer {
 
 [data-theme="dark"] #hero {
   background: none;
-  margin: 0;
+  margin: 0 auto;
+  max-width: 1200px; /* Match container max-width */
+  padding: 5rem 2rem; /* Match container padding */
 }
 
 /* Theme toggle button */
@@ -559,6 +568,18 @@ footer {
     width: 100%;
     max-width: 300px;
     justify-content: center;
+  }
+
+  [data-theme="dark"] section {
+    margin: 0.5rem;
+  }
+
+  [data-theme="dark"] #hero {
+    padding: 3rem 1rem; /* Match mobile container padding */
+  }
+
+  .container {
+    padding: 3rem 1rem;
   }
 }
 
@@ -911,5 +932,25 @@ footer {
 
   .keyboard-row {
     gap: 2px;
+  }
+}
+
+/* Add responsive adjustments */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+/* Add container width consistency */
+@media (min-width: 1400px) {
+  [data-theme="dark"] section {
+    max-width: 1400px;
+  }
+}
+
+@media (max-width: 768px) {
+  [data-theme="dark"] section {
+    margin: 1rem;
   }
 }

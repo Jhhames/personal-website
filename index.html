@@ -37,37 +37,337 @@
     <title>James Falola | Personal website</title>
   </head>
   <body>
-    <div class="container">
-      <div class="header-text">
-        <h2 class="font-matemasie-regular">
-          <span class="underline">
-            Hi! I'm James Falola, and this is my website.
-          </span>
-          <small>(sick font right?)</small>
-        </h2>
+    <nav class="main-nav">
+      <div class="nav-container">
+        <div class="logo font-matemasie-regular">
+          <a href="index.html" class="logo-link">JF</a>
+        </div>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <ul class="nav-links jost-normal">
+          <li><a href="#about">About</a></li>
+          <li><a href="#background">Background</a></li>
+          <li><a href="#philosophy">Philosophy</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li class="theme-toggle-wrapper">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+              <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/>
+                <line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              </svg>
+              <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+            </button>
+          </li>
+        </ul>
       </div>
-      <div class="header-description jost-normal">
-        <o>
-          Not sure what I'll be doing with this website yet, but I'm sure it'll
-          come to me soon. I have some ideas already.
-        </o>
-        <p>
-          As the name implies, it's going to be my website, containing my
-          contact info, professional background, software engineering
-          philosophy, engineering rants, some interesting projects I work on in
-          my free time as well as talking shit about Man United every now and
-          then.
-        </p>
-        <p>
-          I'll also like for this website to be an interesting project to build,
-          I have this idea where I make it a themed website, if I'm doing that,
-          I'll write about it and share.
-        </p>
-        <p>
-          Be on the look out while I try to figure out how to put all of this
-          together. ❤️
-        </p>
+    </nav>
+
+    <main>
+      <section id="hero" class="container">
+        <div class="header-text">
+          <h2 class="font-matemasie-regular">
+            <span class="underline">
+              Hi! I'm James Falola, and this is my website.
+            </span>
+            <small>(sick font right?)</small>
+          </h2>
+        </div>
+        <div class="header-description jost-normal">
+          <p>
+            Software Engineering Lead, car enthusiast, frequent gym goer, and supports an unfortunate football club - Manchester United.
+            Welcome to my digital space where I share my thoughts, work, and experiences as I go through life.
+          </p>
+        </div>
+      </section>
+
+      <section id="about" class="container">
+        <h2 class="font-matemasie-regular">About Me</h2>
+        <div class="content-wrapper jost-normal">
+          <p>
+            I'm a software engineer based in Lagos, Nigeria, currently leading B2B API infrastructure development at Yellow Card App. 
+            With a background in Computer Science and Engineering from OAU, I'm passionate about building scalable solutions 
+            and mentoring others in the tech community.
+          </p>
+          <p>
+            Previously, I served as a mentor at DSC OAU from September 2018 to January 2021, where I provided mentorship 
+            for beginners in PHP and JavaScript, contributing to the growth of aspiring developers.
+          </p>
+        </div>
+      </section>
+
+      <section id="background" class="container">
+        <h2 class="font-matemasie-regular">Professional Background</h2>
+        <div class="content-wrapper jost-normal">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">Present</div>
+              <div class="timeline-content">
+                <h3>Yellow Card App</h3>
+                <p>Leading a team crafting B2B API infrastructure, focusing on building scalable and reliable financial technology solutions.</p>
+                <div class="tech-stack">
+                  <span>TypeScript</span>
+                  <span>Node.js</span>
+                  <span>API Development</span>
+                  <span>Team Leadership</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2015 - 2021</div>
+              <div class="timeline-content">
+                <h3>Obafemi Awolowo University</h3>
+                <p>Computer Science and Engineering</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="philosophy" class="container">
+        <h2 class="font-matemasie-regular">Engineering Philosophy</h2>
+        <div class="content-wrapper jost-normal">
+          <div class="philosophy-grid">
+            <div class="philosophy-card">
+              <h3>Clean Code</h3>
+              <p>Code is read more often than it's written. I believe in writing clear, maintainable code that tells a story.</p>
+            </div>
+            <div class="philosophy-card">
+              <h3>User First</h3>
+              <p>Technical decisions should always be made with the end user's experience in mind.</p>
+            </div>
+            <div class="philosophy-card">
+              <h3>Continuous Learning</h3>
+              <p>The tech world evolves rapidly. Staying curious and adaptable is key to growth.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="container">
+        <h2 class="font-matemasie-regular">Projects</h2>
+        <div class="projects-grid jost-normal">
+          <article class="project-card">
+            <div class="project-image">
+              <img src="https://placehold.co/600x400" alt="Hit The Jim Project" />
+            </div>
+            <div class="project-content">
+              <h3>
+                <a href="project-detail.html" class="project-title">Hit The Jim</a>
+              </h3>
+              <p>A modern workout tracking application built with Vue.js and Firebase. Features include workout tracking, progress monitoring, and social sharing.</p>
+              <div class="project-links">
+                <a href="project-detail.html" class="project-link">View Details</a>
+                <a href="#" class="project-link">GitHub</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-image">
+              <img src="https://placehold.co/600x400" alt="Personal Website" />
+            </div>
+            <div class="project-content">
+              <h3>Personal Website</h3>
+              <p>This website! Built with HTML, CSS, and vanilla JavaScript.</p>
+              <div class="project-links">
+                <a href="#" class="project-link">GitHub</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="blog" class="container">
+        <h2 class="font-matemasie-regular">Blog & Rants</h2>
+        <div class="blog-posts jost-normal">
+          <article class="blog-post">
+            <div class="post-meta">
+              <time datetime="2024-03-25">March 25, 2024</time>
+              <span class="post-category">Tech</span>
+            </div>
+            <h3>
+              <a href="blog-post.html" class="blog-title">AI Won't Replace Engineers, But Engineers Using AI Will</a>
+            </h3>
+            <p>
+              As we witness the rapid advancement of AI tools like ChatGPT and GitHub Copilot, 
+              there's growing concern about AI replacing software engineers. However, I believe 
+              the reality is more nuanced...
+            </p>
+            <a href="blog-post.html" class="read-more">Read More</a>
+          </article>
+
+          <article class="blog-post">
+            <div class="post-meta">
+              <time datetime="2024-03-20">March 20, 2024</time>
+              <span class="post-category">Engineering</span>
+            </div>
+            <h3>
+              <a href="blog-post.html" class="blog-title">Why Clean Code Matters More Than You Think</a>
+            </h3>
+            <p>Exploring the importance of writing maintainable code and its impact on team productivity...</p>
+            <a href="blog-post.html" class="read-more">Read More</a>
+          </article>
+          
+          <article class="blog-post">
+            <div class="post-meta">
+              <time datetime="2024-03-15">March 15, 2024</time>
+              <span class="post-category">Football</span>
+            </div>
+            <h3>
+              <a href="blog-post.html" class="blog-title">United 0 - 2 Crystal Palace: Why this club is afer my life</a>
+            </h3>
+            <p>Breaking down what went wrong in United's latest performance and the structural issues...</p>
+            <a href="blog-post.html" class="read-more">Read More</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="container">
+        <h2 class="font-matemasie-regular">Get in Touch</h2>
+        <div class="contact-info jost-normal">
+          <div class="social-links-container">
+            <a href="https://www.linkedin.com/in/james-falola-590446161/" target="_blank" class="social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+            <a href="#" target="_blank" class="social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="jost-normal">
+      <div class="container">
+        <p>&copy; 2024 James Falola. Built with ❤️</p>
       </div>
-    </div>
+    </footer>
+
+    <script>
+      // Check for saved theme preference, otherwise use system preference
+      const getPreferredTheme = () => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+          return savedTheme;
+        }
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      };
+
+      // Apply theme to document
+      const applyTheme = (theme) => {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+      };
+
+      // Initialize theme
+      applyTheme(getPreferredTheme());
+
+      // Handle toggle button click
+      document.getElementById('theme-toggle').addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(newTheme);
+      });
+
+      // Listen for system theme changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+          applyTheme(e.matches ? 'dark' : 'light');
+        }
+      });
+
+      // Mobile menu functionality
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const navLinks = document.querySelector('.nav-links');
+
+      mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        mobileMenuBtn.classList.toggle('active');
+      });
+
+      // Close menu when clicking a link
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          mobileMenuBtn.classList.remove('active');
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.nav-container')) {
+          navLinks.classList.remove('active');
+          mobileMenuBtn.classList.remove('active');
+        }
+      });
+
+      // Scroll reveal functionality
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            // Unobserve after animation
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Add reveal classes and observe sections
+      document.querySelectorAll('section').forEach(section => {
+        if (section.id !== 'hero') {
+          section.classList.add('reveal');
+          observer.observe(section);
+        }
+      });
+
+      // Add staggered animations to cards
+      document.querySelectorAll('.philosophy-card').forEach((card, index) => {
+        card.classList.add(`stagger-delay-${index + 1}`);
+        observer.observe(card);
+      });
+
+      document.querySelectorAll('.project-card').forEach((card, index) => {
+        card.classList.add(`stagger-delay-${index + 1}`);
+        observer.observe(card);
+      });
+
+      document.querySelectorAll('.blog-post').forEach((post, index) => {
+        post.classList.add(`stagger-delay-${index + 1}`);
+        observer.observe(post);
+      });
+
+      // Add alternating animations to timeline items
+      document.querySelectorAll('.timeline-item').forEach((item, index) => {
+        item.classList.add(index % 2 === 0 ? 'reveal-left' : 'reveal-right');
+        observer.observe(item);
+      });
+    </script>
   </body>
 </html>

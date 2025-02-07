@@ -646,3 +646,270 @@ footer {
 .logo-link:hover {
   color: var(--accent-color);
 }
+
+/* Memory Game Styles */
+.game-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.game-intro {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.game-button {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  margin: 1rem 0;
+}
+
+.game-button:hover {
+  opacity: 0.9;
+}
+
+.game-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  perspective: 1000px;
+}
+
+.memory-card {
+  position: relative;
+  height: 100px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: scale(1);
+  transition: transform 0.3s;
+}
+
+.memory-card:hover {
+  transform: scale(0.97);
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  background: var(--card-bg);
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px var(--shadow-color);
+}
+
+.card-front {
+  transform: rotateY(180deg);
+  background: var(--accent-color);
+  color: white;
+  font-size: 1.5rem;
+}
+
+.card-back {
+  background: var(--card-bg);
+  color: var(--primary-color);
+  font-size: 2rem;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .memory-card {
+    height: 80px;
+  }
+}
+
+/* Game Selector Styles */
+.game-selector {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.game-select-btn {
+  background: var(--card-bg);
+  color: var(--primary-color);
+  border: 2px solid var(--accent-color);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.game-select-btn.active {
+  background: var(--accent-color);
+  color: white;
+}
+
+.games-container > div {
+  display: none;
+}
+
+.games-container > div.active {
+  display: block;
+}
+
+/* Update Wordle styles */
+.wordle-game {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.wordle-game.not-started .wordle-board,
+.wordle-game.not-started .wordle-keyboard {
+  display: none;
+}
+
+.wordle-game.started .wordle-board,
+.wordle-game.started .wordle-keyboard {
+  display: grid;
+}
+
+.wordle-board {
+  display: grid;
+  gap: 5px;
+  margin-bottom: 2rem;
+}
+
+.wordle-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+}
+
+.wordle-tile {
+  aspect-ratio: 1;
+  border: 2px solid var(--shadow-color);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.wordle-tile.filled {
+  border-color: var(--primary-color);
+}
+
+.wordle-tile.correct {
+  background: #6aaa64;
+  border-color: #6aaa64;
+  color: white;
+}
+
+.wordle-tile.present {
+  background: #c9b458;
+  border-color: #c9b458;
+  color: white;
+}
+
+.wordle-tile.wrong {
+  background: var(--shadow-color);
+  border-color: var(--shadow-color);
+  color: white;
+}
+
+.wordle-keyboard {
+  display: grid;
+  gap: 6px;
+  padding: 0.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.key {
+  background: var(--card-bg);
+  color: var(--primary-color);
+  border: 1px solid var(--shadow-color);
+  border-radius: 4px;
+  padding: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 2rem;
+  text-align: center;
+}
+
+.key-wide {
+  padding: 0.75rem 1.25rem;
+  min-width: 4rem;
+}
+
+/* Update the color states to ensure visibility */
+.key.correct,
+.key.present,
+.key.wrong {
+  border: none;
+  color: white;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .wordle-tile {
+    font-size: 1.25rem;
+  }
+  
+  .key {
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    min-width: 1.75rem;
+  }
+  
+  .key-wide {
+    padding: 0.5rem 1rem;
+    min-width: 3.5rem;
+  }
+
+  .wordle-game {
+    padding: 0.5rem;
+  }
+
+  .wordle-keyboard {
+    padding: 0.25rem;
+    gap: 4px;
+  }
+
+  .keyboard-row {
+    gap: 2px;
+  }
+}

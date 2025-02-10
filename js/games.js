@@ -52,10 +52,14 @@ class GameManager {
       movesStat.classList.remove('hidden')
       timeStat.classList.remove('hidden')
       scoreStat.classList.add('hidden')
+      document.querySelector('.game-intro p').textContent =
+        'Match all the pairs to win!'
     } else {
       movesStat.classList.add('hidden')
       timeStat.classList.add('hidden')
       scoreStat.classList.remove('hidden')
+      document.querySelector('.game-intro p').textContent =
+        'Guess the word in 6 tries!'
     }
 
     this.currentGame = gameName
@@ -76,48 +80,108 @@ class WordleGame {
     this.maxGuesses = 6
     this.wordLength = 5
     this.gameOver = false
-    this.words = [
-      'REACT',
-      'REDUX',
-      'SWIFT',
-      'LINUX',
-      'CLOUD',
-      'STACK',
-      'ARRAY',
-      'GRAPH',
-      'CACHE',
-      'PROXY',
-      'ASYNC',
-      'CLASS',
-      'CONST',
-      'DEBUG',
-      'ERROR',
-      'FLOAT',
-      'INPUT',
-      'LOGIC',
-      'QUERY',
-      'SCOPE',
-      'SHELL',
-      'TRACE',
-      'PARSE',
-      'BUILD',
-      'FETCH',
-      'STYLE',
-      'ROUTE',
-      'MODEL',
-      'CLICK',
-      'FOCUS',
-      'MOUNT',
-      'PROPS',
-      'STATE',
-      'STORE',
-      'THEME',
-      'TOKEN',
-      'VALUE',
-      'WRITE',
-      'YIELD',
-      'BREAK'
-    ].filter(word => word.length === this.wordLength) // Ensure all words are 5 letters
+    this.currentCategory = 'tech'
+
+    // Word lists by category
+    this.wordLists = {
+      tech: [
+        'REACT',
+        'REDUX',
+        'SWIFT',
+        'LINUX',
+        'CLOUD',
+        'STACK',
+        'ARRAY',
+        'GRAPH',
+        'CACHE',
+        'PROXY',
+        'ASYNC',
+        'CLASS',
+        'CONST',
+        'DEBUG',
+        'ERROR',
+        'FLOAT',
+        'INPUT',
+        'LOGIC',
+        'QUERY',
+        'SCOPE',
+        'SHELL',
+        'TRACE',
+        'PARSE',
+        'BUILD',
+        'FETCH',
+        'STYLE',
+        'ROUTE',
+        'MODEL',
+        'CLICK',
+        'FOCUS',
+        'MOUNT',
+        'PROPS',
+        'STATE',
+        'STORE',
+        'THEME',
+        'TOKEN',
+        'VALUE',
+        'WRITE',
+        'YIELD',
+        'BREAK'
+      ],
+      football: [
+        'MESSI',
+        'SALAH',
+        'FINAL',
+        'BRUNO',
+        'MOUNT',
+        'SILVA',
+        'LEEDS',
+        'VILLA',
+        'INTER',
+        'PORTO',
+        'MILAN',
+        'PARIS',
+        'BAYERN',
+        'CELTIC',
+        'AJAX',
+        'GOALS',
+        'DRAWS',
+        'COACH',
+        'SQUAD',
+        'PITCH',
+        'FINAL',
+        'DERBY',
+        'SCORE',
+        'TEAMS',
+        'MATCH'
+      ],
+      movies: [
+        'ACTOR',
+        'SCENE',
+        'DRAMA',
+        'MOVIE',
+        'AWARD',
+        'STAGE',
+        'SOUND',
+        'LIGHT',
+        'STORY',
+        'GENRE',
+        'MUSIC',
+        'DANCE',
+        'VOICE',
+        'ROLES',
+        'STARS',
+        'OSCAR',
+        'FILMS',
+        'SHOWS',
+        'PLOTS',
+        'CLIPS',
+        'AUDIO',
+        'VIDEO',
+        'FRAME',
+        'FOCUS',
+        'ZOOM'
+      ]
+    }
+
     this.gameStarted = false
     this.init()
   }
@@ -129,6 +193,7 @@ class WordleGame {
     this.gameContainer = document.querySelector('.wordle-game')
     this.gameContainer.classList.add('not-started')
     this.setupKeyboard()
+    this.setupCategorySelector()
     document.addEventListener('keydown', e => this.handleKeyPress(e))
   }
 
@@ -166,8 +231,24 @@ class WordleGame {
     })
   }
 
+  setupCategorySelector() {
+    const categoryBtns = document.querySelectorAll('.category-btn')
+    categoryBtns.forEach(btn => {
+      btn.addEventListener('click', e => {
+        categoryBtns.forEach(b => b.classList.remove('active'))
+        e.target.classList.add('active')
+        this.currentCategory = e.target.dataset.category
+      })
+    })
+  }
+
   startGame() {
-    this.word = this.words[Math.floor(Math.random() * this.words.length)]
+    // Get words for current category
+    const words = this.wordLists[this.currentCategory].filter(
+      word => word.length === this.wordLength
+    )
+    this.word = words[Math.floor(Math.random() * words.length)]
+
     this.guesses = []
     this.currentGuess = ''
     this.gameOver = false
@@ -259,7 +340,7 @@ class WordleGame {
         wordArray[index] = null // Mark this letter as used
       }
     }
-    
+
     return result
   }
 

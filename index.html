@@ -37,6 +37,12 @@
     <title>James Falola | Personal website</title>
   </head>
   <body>
+    <div class="splash-screen">
+      <div class="splash-content">
+        <img src="favicon_io/favicon-32x32.png" alt="JF Logo" class="splash-logo">
+      </div>
+    </div>
+
     <nav class="main-nav">
       <div class="nav-container">
         <div class="logo font-matemasie-regular">
@@ -399,6 +405,15 @@
       document.querySelectorAll('.timeline-item').forEach((item, index) => {
         item.classList.add(index % 2 === 0 ? 'reveal-left' : 'reveal-right');
         observer.observe(item);
+      });
+
+      document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+          document.querySelector('.splash-screen').classList.add('fade-out');
+          setTimeout(() => {
+            document.querySelector('.splash-screen').style.display = 'none';
+          }, 500);
+        }, 1500);
       });
     </script>
     <script src="js/games.js"></script>

@@ -896,12 +896,30 @@ footer {
   min-width: 4rem;
 }
 
-/* Update the color states to ensure visibility */
+/* Update the color states for better visibility */
+.key.correct {
+  background: #6aaa64;
+  border-color: #6aaa64;
+  color: white;
+}
+
+.key.present {
+  background: #c9b458;
+  border-color: #c9b458;
+  color: white;
+}
+
+.key.wrong {
+  background: #787c7e; /* Changed from shadow-color for better visibility */
+  border-color: #787c7e;
+  color: white;
+}
+
+/* Remove the general override that was causing the issue */
 .key.correct,
 .key.present,
 .key.wrong {
   border: none;
-  color: white;
 }
 
 /* Mobile adjustments */
@@ -952,5 +970,41 @@ footer {
 @media (max-width: 768px) {
   [data-theme="dark"] section {
     margin: 1rem;
+  }
+}
+
+/* Splash Screen Styles */
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+.splash-screen.fade-out {
+  opacity: 0;
+}
+
+.splash-content {
+  text-align: center;
+}
+
+.splash-logo {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
   }
 }
